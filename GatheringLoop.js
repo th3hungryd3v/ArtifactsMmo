@@ -3,7 +3,7 @@ require("dotenv").config();
 const server = "https://api.artifactsmmo.com";
 const token = process.env.API_KEY;
 //Put your character name here
-const character = "d3c0y";
+const character = "bigbangboom";
 let cooldown;
 // let timeout; // Unused Variable??
 
@@ -43,7 +43,7 @@ async function performGathering() {
 
     if (gatheringResponse.status === 200) {
       gatheringResponse.json().then((data) => {
-        console.log("Your character successfully gathered the resource.");
+        console.log(character + " successfully gathered the resource.");
         cooldown = data.data.cooldown.total_seconds;
         setTimeout(performGathering, cooldown * 1000);
       });
