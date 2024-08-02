@@ -1,9 +1,10 @@
 require("dotenv").config();
 
+/*------- REQUIRED -------*/
 const server = "https://api.artifactsmmo.com"; // Base URL
 const token = process.env.API_KEY; // API Key
-//Put your character name here
-const character = "d3c0y";
+const character = "d3c0y"; // Character Name
+/*------- REQUIRED -------*/
 
 async function movement() {
   const url = server + "/my/" + character + "/action/move";
