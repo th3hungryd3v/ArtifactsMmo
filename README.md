@@ -8,3 +8,4 @@ Once you create your account successfully, you'll automatically be redirected to
 Once logged in, you will be greeted with your API Token and 2 buttons: [My Characters](https://artifactsmmo.com/account/characters) & [Change Password](https://artifactsmmo.com/account/change_password)
 
 > Your _Token_ can be reset by **changing your password**
+
