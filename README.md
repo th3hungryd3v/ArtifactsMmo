@@ -2,10 +2,8 @@
 
 ### Intro
 
-- Create Your Account
-  - [Create Account Here:](https://artifactsmmo.com/account/create)
-- Login
-  - [Login Here:](https://artifactsmmo.com/account/create)
+- [Create Account Here](https://artifactsmmo.com/account/create)
+- [Login Here](https://artifactsmmo.com/account/create)
 
 Once you create your account successfully, you'll be redirected to the _Login_ page.
 
