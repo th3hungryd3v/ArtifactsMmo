@@ -3,7 +3,7 @@ require("dotenv").config();
 const server = "https://api.artifactsmmo.com";
 const token = process.env.API_KEY;
 //Put your character name here
-const character = "d3c0y";
+const character = "bigbangboom";
 let cooldown;
 // let timeout; // Unused Variable??
 
