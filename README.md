@@ -9,3 +9,5 @@ Once logged in, you will be greeted with your API Token and 2 buttons: [My Chara
 
 #### *Your _Token_ can be reset by **changing your password**
 
+ToDos:
+- [ ] Create a Class for movement

@@ -21,32 +21,32 @@ async function performGathering() {
     method: "POST",
     headers: headers,
   }).then((gatheringResponse) => {
-    if (gatheringResponse.status === 498) {
-      console.log("The character cannot be found on your account.");
-      return;
-    } else if (gatheringResponse.status === 497) {
-      console.log("Your character's inventory is full.");
-      return;
-    } else if (gatheringResponse.status === 499) {
-      console.log("Your character is in cooldown.");
-      return;
-    } else if (gatheringResponse.status === 493) {
-      console.log("The resource is too high-level for your character.");
-      return;
-    } else if (gatheringResponse.status === 598) {
-      console.log("No resource on this map.");
-      return;
-    } else if (gatheringResponse.status !== 200) {
-      console.log("An error occurred while gathering the resource.");
-      return;
-    }
-
-    if (gatheringResponse.status === 200) {
-      gatheringResponse.json().then((data) => {
+    switch (gatheringResponse.status) {
+      case 498:
+        console.log("The character doesn't exist on your account.");
+        return;
+      case 497:
+        console.log(character + "'s" + " inventory is full.");
+        return;
+      case 499:
+        console.log(character + " is in cooldown.");
+        return;
+      case 493:
+        console.log(character + "'s level is too low for this resource.");
+        return;
+      case 598:
+        console.log("No resource on this map.");
+        return;
+      default:
+        if (gatheringResponse.status !== 200) {
+          console.log("An error occurred while gathering the resource or Muigetsu did something again.");
+          return;
+        }
         console.log(character + " successfully gathered the resource.");
-        cooldown = data.data.cooldown.total_seconds;
-        setTimeout(performGathering, cooldown * 1000);
-      });
+        gatheringResponse.json().then((data) => {
+          cooldown = data.data.cooldown.total_seconds;
+          setTimeout(performGathering, cooldown * 1000);
+        });
     }
   });
 }
