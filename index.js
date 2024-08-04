@@ -3,10 +3,11 @@ require("dotenv").config();
 /*------- REQUIRED -------*/
 const server = "https://api.artifactsmmo.com"; // Base URL
 const token = process.env.API_KEY; // API Key
-const character = "d3c0y"; // Character Name
+// const character = "d3c0y"; // Character Name
 /*------- REQUIRED -------*/
 
-async function movement() {
+// Character name, x location, y location
+async function movement(character, x, y) { 
   const url = server + "/my/" + character + "/action/move";
   const options = {
     method: "POST",
@@ -15,7 +16,7 @@ async function movement() {
       Accept: "application/json",
       Authorization: "Bearer " + token,
     },
-    body: '{"x":0,"y":0}', //change the position here
+    body: JSON.stringify({x: x, y: y}),
   };
 
   try {
@@ -27,4 +28,5 @@ async function movement() {
   }
 }
 
-movement();
+movement("d3c0y", 0, 1);
+movement("bigbangboom", 0, 1)
