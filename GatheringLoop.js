@@ -3,12 +3,12 @@ require("dotenv").config();
 const server = "https://api.artifactsmmo.com";
 const token = process.env.API_KEY;
 //Put your character name here
-// const character = "bigbangboom";
+const character = "bigbangboom";
 let cooldown;
 // let timeout; // Unused Variable??
 
 //This script is an example of how to loop each time cooldown is complete.
-async function performGathering(character) {
+async function performGathering() {
   const url = server + "/my/" + character + "/action/gathering";
 
   const headers = {
@@ -51,5 +51,4 @@ async function performGathering(character) {
   });
 }
 
-performGathering("d3c0y");
-performGathering("bigbangboom");
+performGathering();
