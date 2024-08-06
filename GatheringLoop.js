@@ -28,7 +28,7 @@ async function performGathering() {
         return;
       case 497:
         console.log(character + "'s" + " inventory is full.");
-        await movement(-2, -3); // This works as intended
+        // await movement(-2, -3); // This works as intended
         // await wait(22000)
         // await crafting();
         return;
@@ -62,26 +62,26 @@ async function performGathering() {
 //   return new Promise(resolve => setTimeout(resolve, ms));
 // }
 
-async function movement(x, y) {
-  const url = server + "/my/" + character + "/action/move";
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-      Authorization: "Bearer " + token,
-    },
-    body: JSON.stringify({ x: x, y: y }),
-  };
+// async function movement(x, y) {
+//   const url = server + "/my/" + character + "/action/move";
+//   const options = {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//       Accept: "application/json",
+//       Authorization: "Bearer " + token,
+//     },
+//     body: JSON.stringify({ x: x, y: y }),
+//   };
 
-  try {
-    const response = await fetch(url, options);
-    const { data } = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
-}
+//   try {
+//     const response = await fetch(url, options);
+//     const { data } = await response.json();
+//     console.log(data);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
 // async function crafting() {
 //   const url = server + "/my/" + character + "/action/crafting";
