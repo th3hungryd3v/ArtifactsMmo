@@ -20,14 +20,14 @@ async function performGathering() {
   return fetch(url, {
     method: "POST",
     headers: headers,
-  }).then(async (gatheringResponse) => {
+  }).then(async (gatheringResponse) => { // Added async to the callback
     switch (gatheringResponse.status) {
       case 498:
         console.log("The character doesn't exist on your account.");
         return;
       case 497:
         console.log(character + "'s" + " inventory is full.");
-        await movement(-2, -3); // Await only allowed within async functions
+        await movement(-2, -3); // This works as intended
         return;
       case 499:
         console.log(character + " is in cooldown.");
@@ -74,3 +74,5 @@ async function movement(x, y) {
     console.log(error);
   }
 }
+
+performGathering();
