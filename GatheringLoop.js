@@ -20,14 +20,14 @@ async function performGathering() {
   return fetch(url, {
     method: "POST",
     headers: headers,
-  }).then((gatheringResponse) => {
+  }).then(async (gatheringResponse) => {
     switch (gatheringResponse.status) {
       case 498:
         console.log("The character doesn't exist on your account.");
         return;
       case 497:
         console.log(character + "'s" + " inventory is full.");
-        await movement(-2, -3) // Await only allowed within async functions
+        await movement(-2, -3); // Await only allowed within async functions
         return;
       case 499:
         console.log(character + " is in cooldown.");
@@ -40,7 +40,9 @@ async function performGathering() {
         return;
       default:
         if (gatheringResponse.status !== 200) {
-          console.log("An error occurred while gathering the resource or Muigetsu did something again.");
+          console.log(
+            "An error occurred while gathering the resource or Muigetsu did something again."
+          );
           return;
         }
         console.log(character + " successfully gathered the resource.");
@@ -52,7 +54,7 @@ async function performGathering() {
   });
 }
 
-async function movement(x, y) { 
+async function movement(x, y) {
   const url = server + "/my/" + character + "/action/move";
   const options = {
     method: "POST",
@@ -61,7 +63,7 @@ async function movement(x, y) {
       Accept: "application/json",
       Authorization: "Bearer " + token,
     },
-    body: JSON.stringify({x: x, y: y}),
+    body: JSON.stringify({ x: x, y: y }),
   };
 
   try {
