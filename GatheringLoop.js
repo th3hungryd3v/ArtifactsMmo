@@ -20,7 +20,8 @@ async function performGathering() {
   return fetch(url, {
     method: "POST",
     headers: headers,
-  }).then(async (gatheringResponse) => { // Added async to the callback
+  }).then(async (gatheringResponse) => {
+    // Added async to the callback
     switch (gatheringResponse.status) {
       case 498:
         console.log("The character doesn't exist on your account.");
@@ -28,6 +29,8 @@ async function performGathering() {
       case 497:
         console.log(character + "'s" + " inventory is full.");
         await movement(-2, -3); // This works as intended
+        // await wait(22000)
+        // await crafting();
         return;
       case 499:
         console.log(character + " is in cooldown.");
@@ -36,7 +39,8 @@ async function performGathering() {
         console.log(character + "'s level is too low for this resource.");
         return;
       case 598:
-        console.log("No resource on this map.");
+        console.log("No resource on this map. Moving to Ash Tree");
+        await movement(-1, 0);
         return;
       default:
         if (gatheringResponse.status !== 200) {
@@ -46,13 +50,17 @@ async function performGathering() {
           return;
         }
         console.log(character + " successfully gathered the resource.");
-        gatheringResponse.json().then((data) => {
+        gatheringResponse.json().then(async (data) => {
           cooldown = data.data.cooldown.total_seconds;
           setTimeout(performGathering, cooldown * 1000);
         });
     }
   });
 }
+// // WAIT
+// function wait(ms) {
+//   return new Promise(resolve => setTimeout(resolve, ms));
+// }
 
 async function movement(x, y) {
   const url = server + "/my/" + character + "/action/move";
@@ -74,5 +82,29 @@ async function movement(x, y) {
     console.log(error);
   }
 }
+
+// async function crafting() {
+//   const url = server + "/my/" + character + "/action/crafting";
+//   const options = {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//       Accept: "application/json",
+//       Authorization: "Bearer " + token,
+//     },
+//     body: '{"code":"Ash Plank", "quantity":19}', //change the item code here
+//   };
+
+//   try {
+//     const response = await fetch(url, options);
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
+//     const { data } = await response.json();
+//     console.log(data);
+//   } catch (error) {
+//     console.error("Crafting failed:", error);
+//   }
+// }
 
 performGathering();
