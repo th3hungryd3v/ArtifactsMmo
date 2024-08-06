@@ -27,6 +27,7 @@ async function performGathering() {
         return;
       case 497:
         console.log(character + "'s" + " inventory is full.");
+        await movement(-2, -3) // Await only allowed within async functions
         return;
       case 499:
         console.log(character + " is in cooldown.");
@@ -51,4 +52,23 @@ async function performGathering() {
   });
 }
 
-performGathering();
+async function movement(x, y) { 
+  const url = server + "/my/" + character + "/action/move";
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: "Bearer " + token,
+    },
+    body: JSON.stringify({x: x, y: y}),
+  };
+
+  try {
+    const response = await fetch(url, options);
+    const { data } = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
