@@ -50,6 +50,7 @@ async function performGathering() {
           return;
         }
         console.log(character + " successfully gathered the resource.");
+        // console.log()
         gatheringResponse.json().then(async (data) => {
           cooldown = data.data.cooldown.total_seconds;
           setTimeout(performGathering, cooldown * 1000);
