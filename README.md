@@ -13,3 +13,6 @@ ToDos:
 - [ ] Create a Class for movement
 - [ ] Create a new character when current characters are at level 20
 - [ ] Read more documentation
+
+Ideas:
+- [ ] Hit the API for the Map and display in within a <canvas>
