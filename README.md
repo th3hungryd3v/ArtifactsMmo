@@ -12,3 +12,4 @@ Once logged in, you will be greeted with your API Token and 2 buttons: [My Chara
 ToDos:
 - [ ] Create a Class for movement
 - [ ] Create a new character when current characters are at level 20
+- [ ] Read more documentation
