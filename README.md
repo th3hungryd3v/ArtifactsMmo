@@ -13,6 +13,7 @@ ToDos:
 - [ ] Create a Class for movement
 - [ ] Create a new character when current characters are at level 20
 - [ ] Read more documentation
+- [ ] Farm more resources (Iron, Shrimp, Fish, Birch)
 
 Ideas:
 - [ ] Hit the API for the Map and display json response within a <canvas> element
