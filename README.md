@@ -15,4 +15,4 @@ ToDos:
 - [ ] Read more documentation
 
 Ideas:
-- [ ] Hit the API for the Map and display in within a <canvas>
+- [ ] Hit the API for the Map and display json response within a <canvas> element
