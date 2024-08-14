@@ -21,5 +21,6 @@ ToDos:
 - [ ] Work on leveling up Crafting (Gear, Weapons, etc..,)
 
 
+
 Ideas:
 - [ ] Hit the API for the Map and display json response within a <canvas> element
