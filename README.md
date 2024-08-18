@@ -12,7 +12,6 @@ Once logged in, you will be greeted with your API Token and 2 buttons: [My Chara
 - [ ] Work on one thing at a time, my guy (Pizza Legends)
 
 ToDos:
-- [x] Break (1 week)
 - [ ] Remove/Refactor GearCrafting.js
 - [ ] Create a Class for movement
 - [ ] Create a new character when current characters are at level 20
